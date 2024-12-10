@@ -1,0 +1,24 @@
+lzc-sdk-version: 0.1
+package: cloud.lazycat.app.cloudbeaver
+version: 24.3.0
+name: cloudbeaver
+description: Cloud Database Manager
+license: https://choosealicense.com/licenses/mit/
+homepage: https://github.com/dbeaver/cloudbeaver
+author: dbaever
+application:
+  subdomain: cloudbeaver
+  background_task: false
+  routes:
+    - /=http://cloudbeaver:8978
+  ingress:
+    - protocol: tcp
+      port: 8978
+      service: cloudbeaver
+  depends_on:
+    - cloudbeaver
+services:
+  cloudbeaver:
+    image: docker.1ms.run/dbeaver/cloudbeaver:latest
+    binds:
+      - /lzcapp/var/workspace:/opt/cloudbeaver/workspace

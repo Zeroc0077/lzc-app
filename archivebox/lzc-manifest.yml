@@ -1,0 +1,21 @@
+lzc-sdk-version: 0.1
+package: cloud.lazycat.app.archivebox
+version: 0.1.4
+name: ArchiveBox
+description: 开源自托管 Web 存档。获取URL/浏览器历史记录/书签/口袋/插板/等，保存HTML，JS，PDF，媒体等...
+license: https://choosealicense.com/licenses/mit/
+homepage: https://github.com/ArchiveBox/ArchiveBox
+author: ArchiveBox
+application:
+  subdomain: archivebox
+  background_task: true
+  routes:
+    - /=http://db.cloud.lazycat.app.archivebox.lzcapp:8000
+  image: registry.lazycat.cloud/alpine:3.16
+  depends_on:
+    - db
+services:
+  db:
+    image: registry.lazycat.cloud/archivebox/archivebox:0.2
+    binds:
+      - /lzcapp/var/data:/data
