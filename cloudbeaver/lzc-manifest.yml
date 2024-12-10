@@ -2,7 +2,7 @@ lzc-sdk-version: 0.1
 package: cloud.lazycat.app.cloudbeaver
 version: 24.3.0
 name: cloudbeaver
-description: Cloud Database Manager
+description: 云数据库管理工具，支持 Mysql、Postgresql、Oracle、SQL Server 等多种数据库
 license: https://choosealicense.com/licenses/mit/
 homepage: https://github.com/dbeaver/cloudbeaver
 author: dbaever
