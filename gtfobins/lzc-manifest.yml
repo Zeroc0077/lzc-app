@@ -1,0 +1,21 @@
+lzc-sdk-version: 0.1
+name: GTFObins
+package: cloud.lazycat.app.gtfobins
+version: 0.0.1
+description: GTFObins 是一个用于查找和利用 Unix/Linux 系统中可执行二进制文件的工具集合，帮助安全研究人员和渗透测试者利用常见的可执行文件进行提权和其他攻击。
+license: https://choosealicense.com/licenses/mit/
+homepage: https://github.com/GTFOBins/GTFOBins.github.io
+author: GTFOBins
+application:
+  subdomain: gtfobins
+  routes:
+    - /=http://gtfobins:4000
+  ingress:
+    - protocol: tcp
+      port: 4000
+      service: gtfobins
+  depends_on:
+    - gtfobins
+services:
+  gtfobins:
+    image: registry.lazycat.cloud/zeroc/djangobyjeffrey/gtfobins:016cbd6f5e1642ab
