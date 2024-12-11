@@ -1,0 +1,21 @@
+lzc-sdk-version: 0.1
+name: LOLBAS
+package: cloud.lazycat.app.lolbas
+version: 0.0.1
+description: LOLBAS（Living Off the Land Binaries and Scripts）用于查找和利用 Windows 系统中可利用的二进制文件和脚本的集合。
+license: https://choosealicense.com/licenses/mit/
+homepage: https://github.com/LOLBAS-Project/LOLBAS
+author: LOLBAS-Project
+application:
+  subdomain: lolbas
+  routes:
+    - /=http://lolbas:4000
+  ingress:
+    - protocol: tcp
+      port: 4000
+      service: lolbas
+  depends_on:
+    - lolbas
+services:
+  lolbas:
+    image: registry.lazycat.cloud/zeroc/djangobyjeffrey/lolbas:7c536b3f301644a9
