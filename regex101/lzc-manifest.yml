@@ -2,7 +2,7 @@ lzc-sdk-version: 0.1
 name: regex101
 package: cloud.lazycat.app.regex101
 version: 0.0.1
-description: 具有语法高亮的正则表达式测试工具，支持 PHP/PCRE, Python, GO, JavaScript, Java, C#/.NET, Rust
+description: 具有语法高亮的离线正则表达式测试工具，支持 PHP/PCRE, Python, GO, JavaScript, Java, C#/.NET, Rust
 license: https://choosealicense.com/licenses/mit/
 homepage: https://regex101.com/
 author: firasdib

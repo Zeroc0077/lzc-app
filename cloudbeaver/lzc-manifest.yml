@@ -19,6 +19,9 @@ application:
     - cloudbeaver
 services:
   cloudbeaver:
-    image: docker.1ms.run/dbeaver/cloudbeaver:latest
+    image: registry.lazycat.cloud/zeroc/dbeaver/cloudbeaver:00c4de099c738d72
     binds:
       - /lzcapp/var/workspace:/opt/cloudbeaver/workspace
+unsupported_platforms:
+  - ios
+  - android
