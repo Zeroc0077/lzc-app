@@ -1,0 +1,31 @@
+lzc-sdk-version: 0.1
+name: HedgeDoc
+package: io.zeroc.app.hedgedoc
+version: 1.10.0
+description: HedgeDoc是一个开源的实时协作笔记应用，支持Markdown格式，方便团队共同编辑和分享文档。
+license: https://choosealicense.com/licenses/mit/
+homepage: https://github.com/hedgedoc/hedgedoc
+author: hedgedoc
+application:
+  subdomain: hedgedoc
+  routes:
+    - /=http://hedgedoc:3000
+services:
+  hedgedoc:
+    image: registry.lazycat.cloud/zeroc/zeroc0077/hedgedoc:93804416fce48ec8
+    binds:
+      - /lzcapp/var/uploads:/hedgedoc/public/uploads
+    environment:
+      - CMD_DB_URL=postgres://hedgedoc:password@database:5432/hedgedoc
+      - CMD_URL_ADDPORT=false
+      - CMD_CSP_ENABLE=false
+      - CMD_PROTOCOL_USESSL=true
+      - UPLOADS_MODE=777
+  database:
+    image: registry.lazycat.cloud/zeroc/postgres:f5aa7cac1dc299a7
+    binds:
+      - /lzcapp/var/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=hedgedoc
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=hedgedoc
