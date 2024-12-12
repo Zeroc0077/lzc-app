@@ -1,0 +1,15 @@
+lzc-sdk-version: 0.1
+name: quickref
+package: io.zeroc.app.quickref
+version: 1.45.0
+description: 为开发人员分享快速参考备忘清单(速查表)
+license: https://choosealicense.com/licenses/mit/
+homepage: https://github.com/jaywcjlove/reference
+author: jaywcjlove
+application:
+  subdomain: quickref
+  routes:
+    - /=http://quickref:3000
+services:
+  quickref:
+    image: registry.lazycat.cloud/zeroc/wcjiang/reference:4beb8942c754dd93
