@@ -1,0 +1,41 @@
+lzc-sdk-version: 0.1
+name: koillection
+package: io.zeroc.app.koillection
+version: 1.5.16
+description: Koillection 是一种自托管的收藏服务，允许用户管理各种类型的收藏。
+license: https://choosealicense.com/licenses/mit/
+homepage: https://github.com/benjaminjonard/koillection
+author: benjaminjonard
+application:
+  subdomain: koillection
+  routes:
+    - /=http://koillection:80
+services:
+  koillection:
+    image: registry.lazycat.cloud/zeroc/zeroc0077/koillection:bd333f48bb538ef2
+    binds:
+      - /lzcapp/var/uploads:/uploads
+    environment:
+      - APP_DEBUG=1
+      - APP_ENV=prod
+      - HTTPS_ENABLED=0
+      - UPLOAD_MAX_FILESIZE=20M
+      - PHP_MEMORY_LIMIT=512M
+      - PHP_TZ=Asia/Shanghai
+      - DB_DRIVER=pdo_pgsql
+      - DB_NAME=koillection
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=koillection
+      - DB_PASSWORD=password
+      - DB_VERSION=16
+    depends_on:
+      - db
+  db:
+    image: registry.lazycat.cloud/zeroc/postgres:f5aa7cac1dc299a7
+    binds:
+      - /lzcapp/var/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=koillection
+      - POSTGRES_USER=koillection
+      - POSTGRES_PASSWORD=password
