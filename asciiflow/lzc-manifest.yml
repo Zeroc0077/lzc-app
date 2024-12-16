@@ -1,0 +1,15 @@
+lzc-sdk-version: 0.1
+name: asciiflow
+package: io.zeroc.app.asciiflow
+version: 0.0.1
+description: asciiflow 是用于绘制 ASCII 图像的简单的应用程序。
+license: https://choosealicense.com/licenses/mit/
+homepage: https://github.com/lewish/asciiflow
+author: lewish
+application:
+  subdomain: asciiflow
+  routes:
+    - /=file:///lzcapp/pkg/content/dist
+unsupported_platforms:
+  - ios
+  - android
