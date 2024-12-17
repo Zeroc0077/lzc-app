@@ -1,0 +1,17 @@
+lzc-sdk-version: 0.1
+name: dashy
+package: io.zeroc.app.dashy
+version: 3.1.1
+description: Dashy 是一个开源的自托管仪表板和应用程序面板，旨在帮助用户以直观的方式组织和访问他们的应用和服务。
+license: https://choosealicense.com/licenses/mit/
+homepage: https://github.com/Lissy93/dashy
+author: Lissy93
+application:
+  subdomain: dashy
+  routes:
+    - /=http://dashy:8080
+services:
+  dashy:
+    image: registry.lazycat.cloud/zeroc/lissy93/dashy:c0b1b9e0d5ca51ef
+    binds:
+      - /lzcapp/pkg/content/conf:/app/user-data
